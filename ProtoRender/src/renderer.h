@@ -29,10 +29,7 @@ namespace ProtoRenderer
 	class Renderer
 	{
 	public:
-		explicit Renderer(uint32_t windowWidth, uint32_t windowHeight, std::string_view title) noexcept
-			:
-			window(sf::VideoMode(windowWidth, windowHeight), title.data())
-		{}
+		explicit Renderer(uint32_t windowWidth, uint32_t windowHeight, std::string_view title) noexcept;
 
 		Renderer(const Renderer&) noexcept = delete;
 		Renderer(Renderer&&) noexcept = delete;
@@ -47,6 +44,8 @@ namespace ProtoRenderer
 		void setTransform(const transform_t& transform);
 		void setTexture(texture_t* texture);
 
+		void setCameraCoord(float x, float y);
+
 		void clear();
 		void draw(const mesh_t& drawable);
 		void draw(const text_t& drawable);
@@ -55,6 +54,7 @@ namespace ProtoRenderer
 
 	private:
 		sf::RenderWindow window;
+		sf::View view;
 
 		sf::RenderStates states;
 	};

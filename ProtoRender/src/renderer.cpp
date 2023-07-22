@@ -1,5 +1,16 @@
 #include "renderer.h"
 
+ProtoRenderer::Renderer::Renderer(uint32_t windowWidth, uint32_t windowHeight, std::string_view title) noexcept
+	:
+	window(sf::VideoMode(windowWidth, windowHeight), title.data())
+{
+
+	this->view.setCenter({});
+	this->view.setSize({ static_cast<float>(windowWidth), static_cast<float>(windowHeight) });
+	this->window.setView(this->view);
+
+}
+
 void ProtoRenderer::Renderer::clear()
 {
 	this->window.clear();
@@ -28,6 +39,12 @@ void ProtoRenderer::Renderer::setTransform(const transform_t& transform)
 void ProtoRenderer::Renderer::setTexture(texture_t* texture)
 {
 	this->states.texture = texture;
+}
+
+void ProtoRenderer::Renderer::setCameraCoord(float x, float y)
+{
+	this->view.setCenter(x, y);
+	this->window.setView(this->view);
 }
 
 void ProtoRenderer::Renderer::draw(const text_t& drawable)

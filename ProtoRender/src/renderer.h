@@ -25,6 +25,7 @@ namespace ProtoRenderer
 	using text_t = sf::Text;
 	using texture_t = sf::Texture;
 	using transform_t = sf::Transform;
+	using targetTexture_t = sf::RenderTexture;
 
 	class Renderer
 	{
@@ -45,10 +46,12 @@ namespace ProtoRenderer
 		void setTexture(texture_t* texture);
 
 		void setCameraCoord(float x, float y);
+		void setCameraCoord(targetTexture_t& target, float x, float y);
 
 		void clear();
 		void draw(const mesh_t& drawable);
 		void draw(const text_t& drawable);
+		void draw(targetTexture_t& target, const mesh_t& drawable);
 
 		void display();
 

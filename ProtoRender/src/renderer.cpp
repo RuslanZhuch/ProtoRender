@@ -47,9 +47,20 @@ void ProtoRenderer::Renderer::setCameraCoord(float x, float y)
 	this->window.setView(this->view);
 }
 
+void ProtoRenderer::Renderer::setCameraCoord(targetTexture_t& target, float x, float y)
+{
+	this->view.setCenter(x, y);
+	target.setView(this->view);
+}
+
 void ProtoRenderer::Renderer::draw(const text_t& drawable)
 {
 	this->window.draw(drawable);
+}
+
+void ProtoRenderer::Renderer::draw(targetTexture_t& target, const mesh_t& drawable)
+{
+	target.draw(drawable, this->states);
 }
 
 void ProtoRenderer::Renderer::display()

@@ -24,6 +24,7 @@ namespace ProtoRenderer
 	using mesh_t = sf::VertexArray;
 	using text_t = sf::Text;
 	using texture_t = sf::Texture;
+	using texturePtr_t = texture_t*;
 	using transform_t = sf::Transform;
 	using targetTexture_t = sf::RenderTexture;
 

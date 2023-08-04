@@ -24,7 +24,7 @@ namespace ProtoRenderer
 	using mesh_t = sf::VertexArray;
 	using text_t = sf::Text;
 	using texture_t = sf::Texture;
-	using texturePtr_t = texture_t*;
+	using texturePtr_t = const texture_t*;
 	using transform_t = sf::Transform;
 	using targetTexture_t = sf::RenderTexture;
 
@@ -44,10 +44,12 @@ namespace ProtoRenderer
 		[[nodiscard]] sf::Vector2<int> getMousePosition() const;
 
 		void setTransform(const transform_t& transform);
-		void setTexture(texture_t* texture);
+		void setTexture(const texture_t* texture);
 
 		void setCameraCoord(float x, float y);
+		void setCameraParameters(float width, float height);
 		void setCameraCoord(targetTexture_t& target, float x, float y);
+		void setCameraParameters(targetTexture_t& target, float width, float height);
 
 		void clear();
 		void draw(const mesh_t& drawable);

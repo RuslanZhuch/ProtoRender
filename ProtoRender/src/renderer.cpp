@@ -36,7 +36,7 @@ void ProtoRenderer::Renderer::setTransform(const transform_t& transform)
 	this->states.transform = transform;
 }
 
-void ProtoRenderer::Renderer::setTexture(texture_t* texture)
+void ProtoRenderer::Renderer::setTexture(const texture_t* texture)
 {
 	this->states.texture = texture;
 }
@@ -47,9 +47,21 @@ void ProtoRenderer::Renderer::setCameraCoord(float x, float y)
 	this->window.setView(this->view);
 }
 
+void ProtoRenderer::Renderer::setCameraParameters(float width, float height)
+{
+	this->view.setSize(width, height);
+	this->window.setView(this->view);
+}
+
 void ProtoRenderer::Renderer::setCameraCoord(targetTexture_t& target, float x, float y)
 {
 	this->view.setCenter(x, y);
+	target.setView(this->view);
+}
+
+void ProtoRenderer::Renderer::setCameraParameters(targetTexture_t& target, float width, float height)
+{
+	this->view.setSize(width, height);
 	target.setView(this->view);
 }
 

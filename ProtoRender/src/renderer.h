@@ -47,9 +47,9 @@ namespace ProtoRenderer
 		void setTexture(const texture_t* texture);
 
 		void setCameraCoord(float x, float y);
-		void setCameraParameters(float width, float height);
+		void setCameraParameters(uint32_t width, uint32_t height);
 		void setCameraCoord(targetTexture_t& target, float x, float y);
-		void setCameraParameters(targetTexture_t& target, float width, float height);
+		void setCameraParameters(targetTexture_t& target, uint32_t width, uint32_t height);
 
 		void clear();
 		void draw(const mesh_t& drawable);

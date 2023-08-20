@@ -47,9 +47,9 @@ void ProtoRenderer::Renderer::setCameraCoord(float x, float y)
 	this->window.setView(this->view);
 }
 
-void ProtoRenderer::Renderer::setCameraParameters(float width, float height)
+void ProtoRenderer::Renderer::setCameraParameters(uint32_t width, uint32_t height)
 {
-	this->view.setSize(width, height);
+	this->view.setSize(static_cast<float>(width), static_cast<float>(height));
 	this->window.setView(this->view);
 }
 
@@ -59,9 +59,9 @@ void ProtoRenderer::Renderer::setCameraCoord(targetTexture_t& target, float x, f
 	target.setView(this->view);
 }
 
-void ProtoRenderer::Renderer::setCameraParameters(targetTexture_t& target, float width, float height)
+void ProtoRenderer::Renderer::setCameraParameters(targetTexture_t& target, uint32_t width, uint32_t height)
 {
-	this->view.setSize(width, height);
+	this->view.setSize(static_cast<float>(width), static_cast<float>(height));
 	target.setView(this->view);
 }
 
